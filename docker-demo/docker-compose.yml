@@ -1,0 +1,57 @@
+services:
+  host-a:
+    build: ./rstracer
+    container_name: rstracer-001
+    hostname: docker-rstracer-001
+    networks:
+      demo-network:
+        ipv4_address: 220.189.5.10
+    ports:
+      - "8501:8501"
+    environment:
+      - STREAMLIT_PORT=8501
+
+  host-b:
+    build: ./rstracer
+    container_name: rstracer-002
+    hostname: docker-rstracer-002
+    networks:
+      demo-network:
+        ipv4_address: 220.189.5.20
+    ports:
+      - "8502:8502"
+    environment:
+      - STREAMLIT_PORT=8502
+
+  host-c:
+    build: ./rstracer
+    container_name: rstracer-003
+    hostname: docker-rstracer-003
+    networks:
+      demo-network:
+        ipv4_address: 220.189.5.30
+    ports:
+      - "8503:8503"
+    environment:
+      - STREAMLIT_PORT=8503
+
+  host-d:
+    build: ./rstracer
+    container_name: rstracer-004
+    hostname: docker-rstracer-004
+    networks:
+      demo-network:
+        ipv4_address: 220.189.5.40
+    ports:
+      - "8504:8504"
+    environment:
+      - STREAMLIT_PORT=8504
+
+networks:
+  demo-network:
+    name: demo-network
+    ipam:
+      driver: default
+      config:
+        - subnet: 220.189.0.0/16
+          ip_range: 220.189.5.0/24

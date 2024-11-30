@@ -1,0 +1,14 @@
+
+frequency = 60
+
+[source]
+directory = "/rstracer/export"
+format = "parquet"
+
+[credentials]
+account = "storage_account_name"
+access_key = "storage_access_key"
+
+[storage]
+container = "rstracer"
+directory = "raw"
