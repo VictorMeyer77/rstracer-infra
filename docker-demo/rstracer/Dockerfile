@@ -8,11 +8,12 @@ RUN apt-get update && apt-get install -y \
     dnsutils \
     python3-pip \
     sudo \
+    graphviz \
     && rm -rf /var/lib/apt/lists/*
 
 # Install rstracer
 
-RUN cargo install --git https://github.com/VictorMeyer77/rstracer.git --branch feat/0.1.0-dev
+RUN cargo install --git https://github.com/VictorMeyer77/rstracer.git --tag 0.1.0
 RUN echo 'Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/cargo/bin/"' >> /etc/sudoers
 
 # Install rstracer demo configuration
